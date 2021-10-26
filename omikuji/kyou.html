@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>あなたの運勢</title>
+
+        <style>
+
+            body{
+                font-family: HG正楷書体-PRO;
+                background-image: url(bg_images/bg_hell_jigoku.jpg);
+                background-size: cover;
+
+            }
+
+            table{
+                margin-left: 8%;
+                padding-top: 3%;
+            }
+
+            h1{
+                font-size: 64px;
+                background-color: rgba(147,112,219,0.35);
+            }
+
+            h2{
+                font-size: 35px;
+                background-color: rgba(255,255,255,0.75);
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <table>
+            <tr>
+                <td><img src="omikuji_images/omikuji_kyou.png" width="300px"></td>
+                <td>&nbsp;</td>
+                <td>
+                    <center><h1>あなたの今日の運勢は凶です！</h1></center>
+                    <center><h2 id="random1"></h2></center>
+                    <center><h2 id="random2"></h2></center>
+
+                </td>
+            </tr>
+        </table>
+        
+        <script>
+
+            var a=["何をしてもダメな日かもしれません。おとなしく家に帰って寝ていましょう。",
+                "爪切りに失敗して出血するかもしれません。細心の注意を払いましょう。",
+                "詐欺サイトのリンクを誤ってクリックしてしまうかもしれません。怪しいメールは開かず削除しましょう。",
+                "保存前のファイルを誤って閉じてしまうかもしれません。一行書いたら即保存を心掛けましょう。ctrl+S。"
+            ];
+            var x;
+            x=Math.floor(Math.random()*3); 
+            document.getElementById('random1').innerHTML = (a[x]) ;
+
+            var b=["ラッキーアイテムはお財布","ラッキーアイテムはリンゴ味のガム","ラッキーアイテムはおでん"];
+            var x;
+            x=Math.floor(Math.random()*3); 
+            document.getElementById('random2').innerHTML = (b[x]) ;
+
+        </script>
+
+        
+    </body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>あなたの運勢</title>
+
+        <style>
+
+            body{
+                font-family: HG正楷書体-PRO;
+                background-color: rgb(60,179,113);
+            }
+
+            table{
+                margin-left: 8%;
+                padding-top: 3%;
+            }
+
+            h1{
+                font-size: 64px;
+                background-color: rgba(152,251,152,0.35);
+            }
+
+            h2{
+                font-size: 35px;
+                background-color: rgba(255,255,255,0.65);
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <table>
+            <tr>
+                <td><img src="omikuji_images/omikuji_syoukichi.png" width="300px"></td>
+                <td>&nbsp;</td>
+                <td>
+                    <center><h1>あなたの今日の運勢は小吉です！</h1></center>
+                    <center><h2 id="random1"></h2></center>
+                    <center><h2 id="random2"></h2></center>
+
+                </td>
+            </tr>
+        </table>
+        
+        <script>
+
+            var a=["爪切りが上手に出来るかもしれません。落ち着いてゆっくり切ってみましょう。",
+                "朝起きたら身長が3mm伸びているかもしれません。気のせいかもしれません。",
+                "お釣りでもらった小銭がピカピカかもしれません。財布の中で光り輝く小銭を眺めて楽しみましょう。"
+            ];
+            var x;
+            x=Math.floor(Math.random()*3); 
+            document.getElementById('random1').innerHTML = (a[x]) ;
+
+            var b=["ラッキーアイテムは大葉","ラッキーアイテムは黄色いハンカチ","ラッキーアイテムはヒョウ柄のTシャツ"];
+            var x;
+            x=Math.floor(Math.random()*3); 
+            document.getElementById('random2').innerHTML = (b[x]) ;
+
+        </script>
+
+        
+    </body>
+
+</html>

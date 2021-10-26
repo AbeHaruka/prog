@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>おみくじ</title>
+
+        <style>
+
+            img.omikuji_button:hover{
+                opacity:0.5;
+                cursor: pointer;
+            }
+
+            img.omikuji_button:active{
+                position: relative;
+                top: 3px;
+            }
+
+            
+            body { 
+                background-image: url(bg_images/background.jpg);
+                padding-top: 5%;
+                text-align: center;
+                font-family: HG正楷書体-PRO;
+                
+            }
+
+        </style>
+
+    </head>
+
+
+
+
+    <body>
+        
+        <div id="pull">
+            <img src="omikuji_images/omikuji.png" class="omikuji_button" ontouchstart=""  width="25%" height="25%">
+        </div>
+
+        <b><p style="background-color:#ffcc99;"><font size="7">クリックでおみくじを引く</font></p></b>
+
+        <script>
+
+            const pull=document.querySelector("#pull");
+            
+            pull.onclick=function(){
+                const num=Math.ceil(Math.random()*5);
+            
+                if(num==1){
+                    window.location.href = 'daikichi.html';
+                }else if(num==2){
+                    window.location.href = 'chuukichi.html';
+                }else if(num==3){
+                    window.location.href = 'kichi.html';
+                }else if(num==4){
+                    window.location.href = 'syoukichi.html';
+                }else{
+                    window.location.href = 'kyou.html';
+                }
+             }
+            
+        </script>
+
+
+    </body>
+
+</html>
