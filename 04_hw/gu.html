@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="crossorigin="anonymous"></script>
+        <title>Judge</title>
+
+        <style>
+
+            h1{
+                font-size:64px;
+            }
+
+            h2{
+                font-size: 46px;
+                padding-bottom: 0px;
+            }
+
+            img{
+                padding-top: 30px;
+            }
+
+            .loop_wrap {
+                display: flex;
+                width: 100vw;
+                height: 140px;
+                overflow: hidden;
+            }
+
+            .loop_wrap img {
+                width: auto;
+                height: 100%;
+                pointer-events: none;
+            }
+
+            @keyframes loop {
+                0% {
+                    transform: translateX(100%);
+                }
+                to {
+                    transform: translateX(-100%);
+                }
+                }
+
+                @keyframes loop2 {
+                0% {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-200%);
+                }
+            }
+
+            .loop_wrap img:first-child {
+                    animation: loop 50s -25s linear infinite;
+             }
+
+            .loop_wrap img:last-child {
+                    animation: loop2 50s linear infinite;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="loop_wrap">
+            <img src="images/animal.png"><img src="images/animal.png">
+        </div>
+
+        <center><div id="judge"></div></center>
+        <center><h2 id="judge2"></h2></center>
+        <center><h2 id="judge3"></h2></center>
+
+        <div class="loop_wrap">
+            <img src="images/animal.png"><img src="images/animal.png">
+        </div>
+
+        <script>
+
+            $("#judge").ready(function(){
+                const num=Math.ceil(Math.random()*3);
+
+                if(num==1){
+                $("#judge").html('<img src="images/gu.png" alt="" width="350px" height="350px" >');
+                $("#judge2").html("相手はグー");
+                $("#judge3").html("あいこです！");
+                }else if(num==2){
+                $("#judge").html('<img src="images/cho.png" alt="" width="350px" height="350px" >');
+                $("#judge2").html("相手はチョキ");
+                $("#judge3").html("おめでとう！あなたの勝ち！");
+                }else{
+                $("#judge").html('<img src="images/par.png" alt="" width="350px" height="350px" >');
+                $("#judge2").html("相手はパー");
+                $("#judge3").html("残念！あなたの負け！");
+                }
+
+            })
+        </script>
+        
+    </body>
+
+</html>
