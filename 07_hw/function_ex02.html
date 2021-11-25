@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery.js"></script>
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <h1 id="kekka"></h1>
+
+        <script>
+            
+            //関数群
+            function tasu(a,b){
+                const p = a+ b;
+                return p;
+            }
+
+            function hiku(a,b){
+                const d = a- b;
+                return d;
+            }
+
+            function waru(a,b){
+                const o = a/b;
+                return o;
+            }
+
+            function kakeru(a,b){
+                const c = a*b;
+                return c;
+            }
+
+            function zenbu(a,b,c,d){
+                const q =a+b+c+d;
+                return q;
+            }
+
+            //実行群
+
+            const kekka1= tasu(10,10);
+            console.log(kekka1);
+
+            const kekka2= hiku(10,10);
+            console.log(kekka2);
+
+            const kekka3= waru(10,10);
+            console.log(kekka3);
+
+            const kekka4= kakeru(10,10);
+            console.log(kekka4);
+
+            const kekka5=zenbu(kekka1,kekka2,kekka3,kekka4);
+
+            $("#kekka").html(kekka5);
+
+        </script>
+
+    </body>
+
+</html>
