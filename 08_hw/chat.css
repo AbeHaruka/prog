@@ -1,0 +1,40 @@
+body{
+    background-color: #7494c0;
+    height: 500px;
+}
+
+div{
+    margin-left: 50px;
+}
+
+#okuru{
+    position: fixed;
+    bottom: 5%;
+}
+
+#send{
+    height:40px;
+    width: 50px;
+    background-color: white;
+    color: #7494c0;
+}
+
+#send:hover{
+    background-color: #7494c0;
+    color: white;
+}
+
+#output{
+    background-color: rgba(255,255,255,0.5);
+    width: 50%;
+}
+
+table{
+    margin: 20px 3%;
+    border:1px solid #7494c0;
+}
+#uname{
+    margin-bottom: 10px;
+    height: 30px;
+}
+
