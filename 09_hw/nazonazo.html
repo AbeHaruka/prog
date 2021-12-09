@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nazonazo.css">
+    <title>なぞなぞ</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>?なぞなぞ?</h1>
+        <h2 id="num"></h2>
+    </header>
+
+    <main>
+        <p id="quest">ここに問題が出題されます</p>
+        <p>
+          <input class="toi" type="radio" name="toi" value="1"><span id="toi1">選択肢１</span>
+          <input class="toi" type="radio" name="toi" value="2"><span id="toi2">選択肢２</span>
+          <input class="toi" type="radio" name="toi" value="3"><span id="toi3">選択肢３</span>
+        </p>
+        <center><button id="button1">決定</button></center>
+
+        <div class="popup">
+            <div class="content">
+                <p id ="judge"></p>
+                <p id ="judge2"></p>
+                <p id ="fin"></p>
+                <center><button id="close">次へ</button></center>
+            </div>
+        </div>
+    </main>
+        
+    
+    
+    
+
+        <script>
+
+            const qs = ["通るときには閉まって、通らないときには開いているものは何？",
+                        "話すことがとても好きな道具は何？",
+                        "世界の真ん中にいる虫は何？",
+                        "高齢者の人に気さくに「やあ！」と声をかける乗り物とは？",
+                        "この中でマラソンをして最初にゴールをしたのは？",
+                        "点を取ると大きくなる動物は？"
+            ];
+
+            const toi = [
+                        ["踏み切り","洗濯機","冷蔵庫"],
+                        ["スプーン","シャベル","しゃもじ"],
+                        ["てんとう虫","カマキリ","蚊"],
+                        ["車いす","三輪自転車","夜行列車"],
+                        ["ウサギ","ロバ","ダチョウ"],
+                        ["カバ","イヌ","キリン"]
+            ];
+
+            const kaisetsu = ["（電車が）通る時は閉まって（電車が）通らない時だけ開いている遮断機のこと",
+                                "「シャベル」→「喋る」",
+                                "せ「か」い → 蚊",
+                                "やぁ！高齢者！ → 夜行列車",
+                                "最初にゴール  → 最初濁る → 最初に濁点が来る「ダチョウ」が正解 ",
+                                "「犬」の右上の点を取ると「大」"
+
+            ];
+
+            const ans=[1,2,3,3,3,2];
+            const kazu=6;
+            let seikai=0;
+            let i=0;
+
+            quiz();
+
+            function quiz(){
+                $("#quest").text(qs[i]);
+                $("#toi1").text(toi[i][0]);
+                $("#toi2").text(toi[i][1]);
+                $("#toi3").text(toi[i][2]);
+                $("#num").html(1+i+"問目");
+            }
+
+            function k(){
+                $("#judge2").html(kaisetsu[i]);
+                $('.popup').addClass('show').fadeIn();
+            }
+            
+
+            $('#button1').on('click',function(){
+                let v=$('input:checked').val();
+            
+                if(v==ans[i]){
+                    $("#judge").html("正解!");
+                    seikai++;
+                }else{
+                    $("#judge").html("不正解");
+                };
+                k();
+
+                i++;
+
+                $('#close').on('click',function(){
+                    $('.popup').fadeOut();
+                });
+                
+
+                if(i<kazu){
+                    quiz();
+                }else{
+                    if(v==ans[i-1]){
+                        $("#judge").html("正解!");
+                    }else{
+                        $("#judge").html("不正解");
+                    }
+                    k();
+                    $("#close").html("閉じる");
+                   
+
+                    if(seikai==kazu){
+                        $("#fin").html("終了！全問正解！おめでとう！");
+                    }else{
+                        $("#fin").html("終了！"+seikai+"問正解");
+                    }
+                        
+                    $("#close").on("click",function(){
+                        window.location.href = 'start.html';
+                    });
+                };   
+            });
+
+        </script>
+    
+</body>
+</html>
